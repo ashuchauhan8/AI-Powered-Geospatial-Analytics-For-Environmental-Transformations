@@ -75,15 +75,12 @@ def main():
             st.session_state.partial_response = None
             st.rerun()
         
-        st.markdown("---")
-        st.markdown("### Theme")
-        theme = st.selectbox("Select Theme", ["White", "Dark"],
-                             index=0 if st.session_state.theme == "White" else 1,
-                             label_visibility="collapsed")
-        if theme != st.session_state.theme:
-            st.session_state.theme = theme
+     x  st.markdown("---")
+        if st.button("New Chat", key="new_chat", use_container_width=True):
+            st.session_state.current_chat = None
+            st.session_state.processing_stage = None
+            st.session_state.partial_response = None
             st.rerun()
-
     st.markdown(get_theme_css(st.session_state.theme), unsafe_allow_html=True)
     st.title("🌍 Environmental Data Explorer")
     st.subheader("Analyze environmental metrics with graphs")
